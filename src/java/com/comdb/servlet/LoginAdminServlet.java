@@ -22,21 +22,20 @@ import com.comdb.util.User;
 
 
 
-@WebServlet(name = "Login", urlPatterns = { "/Login" })
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "AdminLogin", urlPatterns = { "/AdminLogin" })
+public class LoginAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	static Logger logger = Logger.getLogger(LoginServlet.class);
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
+                String ad_email = request.getParameter("admin_email");
 		
 		String errorMsg = null;
-		if(email == null || email.equals("")){
-			errorMsg ="User Email can't be null or empty";
+		if(ad_email == null || ad_email.equals("")){
+			errorMsg ="Admin Email can't be null or empty";
 		}
                 
-		
 		if(errorMsg != null){
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
 			PrintWriter out= response.getWriter();
@@ -49,25 +48,27 @@ public class LoginServlet extends HttpServlet {
                     ResultSet rs = null;
                     
                     try {
-                            ps = con.prepareStatement("select cust_ID, cust_Name, cust_Email from customer where cust_Email=? limit 1");
-                            ps.setString(1, email);
+                            /** check admin user **/
+                            ps = con.prepareStatement("select id, admin_Name, admin_Email from adminuser where admin_Email=? limit 1");
+                            ps.setString(1, ad_email);
                             rs = ps.executeQuery();
+
 
                             if(rs != null){
                                     rs.next();
-                                    User user = new User(rs.getString("cust_Name"), rs.getString("cust_Email"), rs.getInt("cust_ID"));
-                                    logger.info("User found with details="+user);
+                                    User user = new User(rs.getString("admin_Name"), rs.getString("admin_Email"), rs.getInt("id"));
+                                    logger.info("Admin found with details="+user);
                                     HttpSession session = request.getSession();
                                     session.setAttribute("User", user);
-                                    response.sendRedirect("home.jsp");
+                                    response.sendRedirect("adminHome.jsp");
                             }else{
                                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
                                     PrintWriter out= response.getWriter();
-                                    logger.error("User not found with email="+email);
-                                    out.println("<font color=red>No user found with given email id, please register first.</font>");
+                                    logger.error("Admin not found with email=" + ad_email);
+                                    out.println("<font color=red>No admin found with given email id.</font>");
                                     rd.include(request, response);
                             }
-                            
+
                             
                             
                     } catch (SQLException e) {
@@ -98,3 +99,7 @@ public class LoginServlet extends HttpServlet {
         
         
 }
+
+
+
+

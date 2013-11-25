@@ -4,6 +4,25 @@
   <welcome-file-list>
     <welcome-file>login.html</welcome-file>
   </welcome-file-list>
+<!--  
+  <resource-ref>
+      <description>DB Connection Pool</description>
+      <res-ref-name>jdbc:mysql://localhost:3306/companydb</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+      <res-sharing-scope>Shareable</res-sharing-scope>
+   </resource-ref>
+ 
+   <servlet>
+      <servlet-name>MySQLDbConnectPooling</servlet-name>
+      <servlet-class>com.comdb.servlet.MySQLDbcpServlet</servlet-class>
+   </servlet>
+ 
+   <servlet-mapping>
+      <servlet-name>MySQLDbConnectPooling</servlet-name>
+      <url-pattern>/home.jsp</url-pattern>
+   </servlet-mapping>
+ -->
   <context-param>
     <param-name>dbUser</param-name>
     <param-value>root</param-value>
