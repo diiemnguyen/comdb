@@ -1,0 +1,26 @@
+/* 
+    Created on : Nov 24, 2013, 11:11:35 PM
+    Author     : Diem
+*/
+
+h1 { font-size: 20px; font-family: sans-serif }
+
+* { font-size: 12px; font-family: Verdana }
+
+input { border: 1px solid #ccc }
+
+#currenttab {
+    border-bottom:1px solid #fff;
+}
+
+a { color: black; text-decoration:none;
+    padding:5px; border: 1px solid #aaa;
+}
+
+a:hover { background: #ccc }
+
+td { border: 1px solid #ccc; padding: 3px }
+th { border: 1px solid #ccc; padding: 3px; 
+    background: #009999; color: white }
+
+.navigator { border-bottom:1px solid #aaa; width:300px; padding:5px }

@@ -36,7 +36,7 @@ public class RegisterServlet extends HttpServlet {
 		}
 				
 		if(errorMsg != null){
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/register.html");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/register.jsp");
 			PrintWriter out= response.getWriter();
 			out.println("<font color=red>"+errorMsg+"</font>");
 			rd.include(request, response);
@@ -56,7 +56,7 @@ public class RegisterServlet extends HttpServlet {
 			//forward to login page to login
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
 			PrintWriter out= response.getWriter();
-			out.println("<font color=green>Registration successful, please login below.</font>");
+			out.println("<font color=green>User Registration ( " + email + " ) successful, please login as a customer.</font>");
 			rd.include(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();

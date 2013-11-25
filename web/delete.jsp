@@ -26,18 +26,18 @@
 <br> <br> <br> <br> <br> <br> <br>
 
 <div class="navigator">
-<a id="currenttab" href="adminHome.jsp">Add</a>
-<a href="delete.jsp">Delete</a>
+<a href="adminHome.jsp">Add</a>
+<a id="currenttab" href="delete.jsp">Delete</a>
 </div>
 
 <br> <br> <br> 
 
-<form action="AdminHome" method="post">
-    <div><b>Admin wants to add a new customer</b></div><br><br><br>
+<form action="AdminDeleteHome" method="post">
+    <div><b>Admin wants to delete a customer by email</b></div><br><br><br>
 <strong>Email</strong>:<input type="text" name="email"><br>
-<strong>Name</strong>:<input type="text" name="name"><br>
+
 <br>
-<input type="submit" value="Admin Add New Customer">
+<input type="submit" value="Admin Delete Customer">
 </form>
 
 

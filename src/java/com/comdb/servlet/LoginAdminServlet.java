@@ -39,8 +39,8 @@ public class LoginAdminServlet extends HttpServlet {
 		if(errorMsg != null){
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
 			PrintWriter out= response.getWriter();
-			out.println("<font color=red>"+errorMsg+"</font>");
 			rd.include(request, response);
+                        out.println("<font color=red>"+errorMsg+"</font>");
 		}else{
 		
                     Connection con = (Connection) getServletContext().getAttribute("DBConnection");

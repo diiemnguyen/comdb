@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Home Page</title>
-
+<link rel="stylesheet" href="css/style.css" type="text/css">
 
 </head>
 <body>
@@ -22,6 +22,7 @@
 </form>
 
 <br /><br />
+<div><b>Our Inventory up to date:</b></div>
 <form method="post">
 
 <table border="2">
@@ -72,21 +73,6 @@ catch(Exception e)
 
 </form>
     
-
-
-<form name=?registration? action="SaveUser" method="Post">
-Item: <input type="text" name="user_name">
-<br />
-Order Case: <input type="password" name="pass_word" />
-<br />
-Total: 
-<input type="submit" value="Submit" />
-
-</form>
-
-
-
-
 
 </body>
 
