@@ -29,3 +29,13 @@ and then paste it into tomcat webapps folder C:\Tomcat5\webapps
    -- comdb will be deployed under webapps folder : C:\Tomcat\webapps\comdb
 
 5. Go any browser and run :  localhost:8080/comdb/
+
+Note: 
+  For admin login: We only set admin email -- "admin@food.com" 
+  (this is already inserted in mysql database: companydb/adminuser)
+
+
+
+
+
+

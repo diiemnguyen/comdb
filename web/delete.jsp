@@ -28,6 +28,7 @@
 <div class="navigator">
 <a href="adminHome.jsp">Add</a>
 <a id="currenttab" href="delete.jsp">Delete</a>
+<a href="updateInventory.jsp">Update Inventory</a>
 </div>
 
 <br> <br> <br> 
@@ -42,6 +43,58 @@
 
 
 <br /><br />
+<div><b>Our Customers up to date:</b></div>
+<form method="post">
+
+<table border="2">
+<tr>
+    <td>Customer ID</td>
+    <td>Name</td>
+    <td>Email</td>
+</tr>
+<%
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String url="jdbc:mysql://localhost/companydb";
+String username="root";
+String password="Passw0rd";
+String query="select * from customer order by cust_ID desc";
+Connection conn=DriverManager.getConnection(url,username,password);
+Statement stmt=conn.createStatement();
+ResultSet rs=stmt.executeQuery(query);
+while(rs.next())
+{
+    String id = rs.getString("cust_ID");
+    String name = rs.getString("cust_Name");
+    String email = rs.getString("cust_Email");
+    
+%>
+    <tr>
+        <td><% out.print(id); %></td>
+        <td><% out.print(name); %></td>
+        <td><% out.print(email); %></td>
+    </tr>
+<%
+
+}
+%>
+    </table>
+    <%
+    rs.close();
+    stmt.close();
+    conn.close();
+    }
+catch(Exception e)
+{
+    e.printStackTrace();
+}
+
+
+%>
+
+</form>
+
 
 </body>
 

@@ -26,31 +26,34 @@
 <br> <br> <br> <br> <br> <br> <br>
 
 <div class="navigator">
-<a id="currenttab" href="adminHome.jsp">Add</a>
+<a href="adminHome.jsp">Add</a>
 <a href="delete.jsp">Delete</a>
-<a href="updateInventory.jsp">Update Inventory</a>
+<a id="currenttab" href="updateInventory.jsp">Update Inventory</a>
 </div>
 
 <br> <br> <br> 
 
-<form action="AdminHome" method="post">
-    <div><b>Admin wants to add a new customer</b></div><br><br><br>
-<strong>Email</strong>:<input type="text" name="email"><br>
-<strong>Name</strong>:<input type="text" name="name"><br>
+
+
+<form action="AdminUpdateInventory" method="post">
+    <div><b>Admin wants to update quantity in the Inventory</b></div><br><br><br>
+<strong>Product No</strong>:<input type="text" name="pro_no"><br>
+<strong>New Quantity</strong>:<input type="text" name="pro_qty"><br>
 <br>
-<input type="submit" value="Admin Add New Customer">
+<input type="submit" value="Admin Update Quantity">
 </form>
 
 
 <br /><br />
-<div><b>Our Customers up to date:</b></div>
+<div><b>Our Inventory up to date:</b></div>
 <form method="post">
 
 <table border="2">
 <tr>
-    <td>Customer ID</td>
-    <td>Name</td>
-    <td>Email</td>
+    <td>Product No</td>
+    <td>Product Title</td>
+    <td>Quantity</td>
+    <td>Price</td>
 </tr>
 <%
 try
@@ -59,21 +62,22 @@ Class.forName("com.mysql.jdbc.Driver");
 String url="jdbc:mysql://localhost/companydb";
 String username="root";
 String password="Passw0rd";
-String query="select * from customer order by cust_ID desc";
+String query="select prod_No, prod_Title, prod_Case_Qty, prod_Case_Price from inventory";
 Connection conn=DriverManager.getConnection(url,username,password);
 Statement stmt=conn.createStatement();
 ResultSet rs=stmt.executeQuery(query);
 while(rs.next())
 {
-    String id = rs.getString("cust_ID");
-    String name = rs.getString("cust_Name");
-    String email = rs.getString("cust_Email");
-    
+    String no = rs.getString("prod_No");
+    String title = rs.getString("prod_Title");
+    int qty = rs.getInt("prod_Case_Qty");
+    double price = rs.getDouble("prod_Case_Price");
 %>
     <tr>
-        <td><% out.print(id); %></td>
-        <td><% out.print(name); %></td>
-        <td><% out.print(email); %></td>
+        <td><% out.print(no); %></td>
+        <td><% out.print(title); %></td>
+        <td><% out.print(qty); %></td>
+        <td><% out.print(price); %></td>
     </tr>
 <%
 
@@ -96,4 +100,5 @@ catch(Exception e)
 </form>
 
 </body>
+
 </html>
