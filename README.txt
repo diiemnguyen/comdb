@@ -1,21 +1,16 @@
-/*
-Project Food Company -- CS 157A - section 1
-    Group: 479
-    Team Member: 
-           Diem Nguyen
-           Thinh Le
-           Qui Trinh
-*/
+/*****
+Project Food Company
+    Member: Diem Nguyen
+*****/
 
 Schema: companydb
 Website: 
-           localhost:8080/comdb/    or      localhost:8080/comdb/login.jsp
+    localhost:8080/comdb/    or      localhost:8080/comdb/login.jsp
 
-
-*** "comdb" folder contains the jsp pages and java servlet classes of our website.
+*** "comdb" folder contains the jsp pages and java servlet classes of website.
 *** Before run the web, please follow these steps 
-( suppose the path for downloading zip file under C:\ )
-( suppose you have the local server Tomcat example C:\Tomcat5 ):
+( the path for downloading zip file under C:\ )
+( the local server Tomcat example C:\Tomcat5 ):
 
 1. C:\comdb\sql\ contains all the text files and sql file of the database companydb
 
